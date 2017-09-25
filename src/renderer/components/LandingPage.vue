@@ -1,27 +1,19 @@
 <template>
   <div id="wrapper">
+    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
-      <div class="left-side">
 
-        <!-- <system-information></system-information> -->
-      </div>
-
-      <div class="right-side">
-
-      </div>
     </main>
   </div>
 </template>
 
 <script>
-  import SystemInformation from './LandingPage/SystemInformation'
-
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    components: {},
     methods: {
       open (link) {
-        require('electron').shell.openExternal(link)
+        this.$electron.shell.openExternal(link)
       }
     }
   }
@@ -50,15 +42,16 @@
     width: 100vw;
   }
 
+  #logo {
+    height: auto;
+    margin-bottom: 20px;
+    width: 420px;
+  }
+
   main {
     display: flex;
     justify-content: space-between;
   }
 
   main > div { flex-basis: 50%; }
-
-  .left-side {
-    display: flex;
-    flex-direction: column;
-  }
 </style>
